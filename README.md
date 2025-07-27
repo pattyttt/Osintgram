@@ -83,12 +83,6 @@ You can find detailed commands usage [here](doc/COMMANDS.md).
     * As an interactive prompt `python3 main.py <target username>`
     * Or execute your command straight away `python3 main.py <target username> --command <command>`
 
-## GUI mode
-
-Run `python3 main.py --gui` to start a simple graphical interface. The GUI lets you
-enter your Instagram username, password and target profile, toggle the `FILE` and
-`JSON` options and choose a command to run. Results are displayed in the window.
-    
 ### Use Osintgram v2 (beta)
 You can use Osintgram2 beta just switching to `v2` [branch](https://github.com/Datalux/Osintgram/tree/v2).
 The v2 has some improvements and is faster with a new command execution interface. Try it just running `git checkout v2`.
