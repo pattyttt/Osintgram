@@ -107,15 +107,24 @@ else:
 
 parser = argparse.ArgumentParser(description='Osintgram is a OSINT tool on Instagram. It offers an interactive shell '
                                              'to perform analysis on Instagram account of any users by its nickname ')
-parser.add_argument('id', type=str,  # var = id
+parser.add_argument('id', type=str, nargs='?',
                     help='username')
 parser.add_argument('-C','--cookies', help='clear\'s previous cookies', action="store_true")
 parser.add_argument('-j', '--json', help='save commands output as JSON file', action='store_true')
 parser.add_argument('-f', '--file', help='save output in a file', action='store_true')
 parser.add_argument('-c', '--command', help='run in single command mode & execute provided command', action='store')
 parser.add_argument('-o', '--output', help='where to store photos', action='store')
+parser.add_argument('-g', '--gui', help='run graphical interface', action='store_true')
 
 args = parser.parse_args()
+
+if args.gui:
+    from gui import run_gui
+    run_gui()
+    sys.exit(0)
+
+if not args.id:
+    parser.error('the following arguments are required: id')
 
 
 api = Osintgram(args.id, args.file, args.json, args.command, args.output, args.cookies)
